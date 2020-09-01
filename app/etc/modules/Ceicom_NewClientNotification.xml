@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Ceicom_NewClientNotification>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Ceicom_NewClientNotification>
+    </modules>
+</config>

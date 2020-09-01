@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Ceicom_NewClientNotification>
+            <version>1.0</version>
+        </Ceicom_NewClientNotification>
+    </modules>
+    <global>
+        <models>
+            <newclientnotification>
+                <class>Ceicom_NewClientNotification_Model</class>
+            </newclientnotification>
+        </models>
+        <helpers>
+            <newclientnotification>
+                <class>Ceicom_NewClientNotification_Helper</class>
+            </newclientnotification>
+        </helpers>
+        <template>
+            <email>
+                <new_client_notification_email_template translate="label" module="newclientnotification">
+                    <label>New Client Web Site</label>
+                    <file>new_client_notification_email_template.html</file>
+                    <type>html</type>
+                </new_client_notification_email_template>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <events>
+            <customer_save_after>
+                <observers>
+                    <newclientnotification>
+                        <type>model</type>
+                        <class>newclientnotification/observer</class>
+                        <method>customerSaveAfter</method>
+                    </newclientnotification>
+                </observers>
+            </customer_save_after>
+        </events>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <newclientnotification translate="title" module="newclientnotification">
+                                            <title>Notificar Novo Cliente</title>
+                                        </newclientnotification>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    <default>
+		<newclientnotification>
+            <config>
+				<enabled>0</enabled>
+                <email>meuemail@meudominio.com</email>
+                <email_name>Novo Cliente - NOME DO SITE</email_name>
+                <email_subject>Novo cliente registrado no site!</email_subject>
+			</config>
+		</newclientnotification>
+	</default>
+</config>

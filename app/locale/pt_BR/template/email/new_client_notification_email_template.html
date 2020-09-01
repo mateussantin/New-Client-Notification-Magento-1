@@ -1,0 +1,17 @@
+{{template config_path="design/email/header"}}
+{{inlinecss file="email-inline.css"}}
+
+<table cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="action-content">
+            <h1>Ei, existe um novo cliente registrado no site!</h1>
+            <p class="highlighted-text">
+                Dados cadastrais:<br/>
+                <strong>Nome completo:</strong> {{var username}}<br/>
+                <strong>Data de cadastro:</strong> {{var date}}
+            </p>
+        </td>
+    </tr>
+</table>
+
+{{template config_path="design/email/footer"}}
